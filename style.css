@@ -15,7 +15,6 @@ body {
     height: 100vh;
 }
 
-/* Estilos da página de token */
 .token-container {
     text-align: center;
     background: #fff;
@@ -46,7 +45,6 @@ body {
 }
 
 
-/* Estilos da página do chatbot */
 .chatbot {
     width: 100%;
     max-width: 800px;
@@ -261,13 +259,13 @@ body {
 }
 
 .chat-input span:active {
-    transform: scale(0.95); /* Efeito de "clicado" */
+    transform: scale(0.95);
 }
 
 .chat-input span svg {
     width: 24px;
     height: 24px;
-    fill: currentColor; /* Garante que o ícone use a cor do texto */
+    fill: currentColor;
 }
 
 
@@ -285,18 +283,17 @@ code {
     color: #d6336c;
 }
 
-/* Adicione ou modifique no seu CSS existente */
 .chatbox .chat p.typing-effect {
-    white-space: pre-wrap; /* Mantém os espaços e quebras de linha */
+    white-space: pre-wrap;
     padding: 12px 16px;
     border-radius: 10px;
     max-width: 75%;
     color: #fff;
     font-size: 0.95rem;
     background: #724ae8;
-    line-height: 1.5; /* Espaçamento de linha */
-    margin-bottom: 10px; /* Espaçamento inferior entre mensagens */
-    overflow: hidden; /* Garante que o efeito de digitação não cause overflow */
+    line-height: 1.5;
+    margin-bottom: 10px;
+    overflow: hidden;
 }
 
 .loading-dots{
@@ -304,7 +301,6 @@ code {
     margin-left: 1rem;
 }
 
-/* Animação de carregamento para os pontos de reticências */
 @keyframes bounce {
     0%, 100% {
         transform: translateY(0);
