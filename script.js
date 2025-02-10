@@ -5,14 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     closeBtn.addEventListener("click", () => {
         chatbot.classList.add("hidden");
-        openChatBtn.style.display = "block";  // Mostrar o botão de abrir o chat
+        openChatBtn.style.display = "block";
     });
 
     openChatBtn.addEventListener("click", () => {
         chatbot.classList.remove("hidden");
-        openChatBtn.style.display = "none";  // Ocultar o botão de abrir o chat
+        openChatBtn.style.display = "none";
     });
-}); /*Fechar e abrir chat */
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     const tokenInput = document.getElementById("api-token");
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const aplicarEfeitoDigitacao = (elemento, texto, velocidade = 50) => {
             let index = 0;
-            elemento.innerHTML = ""; // Limpa o conteúdo existente
+            elemento.innerHTML = "";
             
             const digitarHTML = () => {
                 if (index < texto.length) {
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 .then(res => res.json())
                 .then(data => {
                     const respostaFormatada = formatarTexto(data.choices[0].message.content.trim());
-                    aplicarEfeitoDigitacao(elementoMensagem, respostaFormatada, 25); // Aplica o efeito de digitação
+                    aplicarEfeitoDigitacao(elementoMensagem, respostaFormatada, 25);
                 })
                 .catch(() => {
                     elementoMensagem.classList.add("error");
@@ -115,19 +115,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const lidarComChat = () => {
-            mensagemUsuario = entradaChat.value.trim(); // Obtém a mensagem inserida pelo usuário e remove espaços extras
+            mensagemUsuario = entradaChat.value.trim();
             if (!mensagemUsuario) return;
 
-            // Limpa a área de entrada e define sua altura para o padrão
             entradaChat.value = "";
             entradaChat.style.height = `${alturaInicialEntrada}px`;
 
-            // Adiciona a mensagem do usuário à caixa de chat
             caixaDeChat.appendChild(criarElementoChat(mensagemUsuario, "outgoing"));
             caixaDeChat.scrollTo(0, caixaDeChat.scrollHeight);
 
             setTimeout(() => {
-                // Exibe a mensagem "Pensando..." enquanto aguarda a resposta
                 const chatLiRecebido = criarElementoChat('<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span>', "incoming");
                 caixaDeChat.appendChild(chatLiRecebido);
                 caixaDeChat.scrollTo(0, caixaDeChat.scrollHeight);
@@ -136,13 +133,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         entradaChat.addEventListener("input", () => {
-            // Ajusta a altura da área de entrada com base no seu conteúdo
             entradaChat.style.height = `${alturaInicialEntrada}px`;
             entradaChat.style.height = `${entradaChat.scrollHeight}px`;
         });
 
         entradaChat.addEventListener("keydown", (e) => {
-            // Se a tecla Enter for pressionada sem a tecla Shift e a largura da janela for maior que 800px, lida com o chat
             if (e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
                 e.preventDefault();
                 lidarComChat();
