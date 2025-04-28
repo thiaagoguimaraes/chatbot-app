@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     "Authorization": `Bearer ${CHAVE_API}`
                 },
                 body: JSON.stringify({
-                    model: "gpt-3.5-turbo",
+                    model: "gpt-4o-mini",
                     messages: [{ role: "user", content: mensagemUsuario }],
                 })
             }
